@@ -2,6 +2,12 @@ const express = require("express");
 const bodyParse = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(
+  "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"
+);
+
+const inviteRoute = require("./routes/sendinvite-route");
 
 const app = express();
 
@@ -37,5 +43,8 @@ app.use((req, res, next) => {
 
   next();
 });
+
+// ROUTES
+app.use("/invite", inviteRoute);
 
 module.exports = app;
