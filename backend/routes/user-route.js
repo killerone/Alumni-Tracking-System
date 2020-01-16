@@ -15,7 +15,7 @@ const MIME_TYPE_MAP = {
 const storage = multer.diskStorage({
   // destination on server where file will save
   destination: (req, file, cb) => {
-    cb(null, "backend/images");
+    cb(null, "backend/images/users");
   },
   // changing the name of file
   filename: (req, file, cb) => {
@@ -35,7 +35,34 @@ router.post(
   (req, res, next) => {
     User.findOne({ email: req.body.email }).then(currentUser => {
       if (!currentUser) {
-        const user = this.createUserObject(req);
+        const url = req.protocol + "://" + req.get("host");
+        var user;
+        if (req.file) {
+          user = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: User.hashPassword(req.body.password),
+            dob: req.body.dob,
+            gender: req.body.gender,
+            location: req.body.location,
+            college: req.body.college,
+            usertype: req.body.usertype,
+            batchYear: req.body.batchYear,
+            profilePicture: url + "/images/users/" + req.file.filename
+          });
+        } else {
+          user = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: User.hashPassword(req.body.password),
+            dob: req.body.dob,
+            gender: req.body.gender,
+            usertype: req.body.usertype,
+            location: req.body.location,
+            college: req.body.college,
+            batchYear: req.body.batchYear
+          });
+        }
         user
           .save()
           .then(result => {
@@ -80,8 +107,9 @@ router.post(
   "/:id",
   multer({ storage: storage }).single("image"),
   (req, res, next) => {
-    console.log(req.body);
-    User.findByIdAndUpdate(req.params.id, req.body)
+    const url = req.protocol + "://" + req.get("host");
+    req.body["profilePicture"] = url + "/images/users/" + req.file.filename;
+    User.findByIdAndUpdate(req.params.id, req.body,)
       .then(fetchedUser => {
         res
           .status(200)
@@ -96,43 +124,12 @@ router.post(
 router.get("/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(fetchedUser => {
-      result => {
-        res.status(200).json({ newuser: fetchedUser });
-      };
+      res.status(200).json({ newuser: fetchedUser });
     })
     .catch(err => {
       console.log(err);
       res.status(501).json({ message: "User update unsuccessful." });
     });
 });
-
-function createUserObject(req) {
-  const url = req.protocol + "://" + req.get("host");
-  var user;
-  if (req.file) {
-    user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      dob: req.body.dob,
-      gender: req.body.gender,
-      location: req.body.location,
-      college: req.body.college,
-      batchYear: req.body.batchYear,
-      profilePicture: url + "/images/" + req.file.filename
-    });
-  } else {
-    user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      dob: req.body.dob,
-      gender: req.body.gender,
-      location: req.body.location,
-      college: req.body.college,
-      batchYear: req.body.batchYear
-    });
-  }
-
-  return user;
-}
 
 module.exports = router;

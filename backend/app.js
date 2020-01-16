@@ -10,6 +10,8 @@ sgMail.setApiKey(
 
 const inviteRoute = require("./routes/sendinvite-route");
 const userRoute = require("./routes/user-route");
+const noticeRoute = require("./routes/notice-route");
+const eventRoute = require("./routes/event-route");
 
 const app = express();
 
@@ -50,5 +52,7 @@ app.use((req, res, next) => {
 // ROUTES
 app.use("/invite", inviteRoute);
 app.use("/user", userRoute);
+app.use("/notice", noticeRoute);
+app.use("/event", eventRoute);
 
 module.exports = app;

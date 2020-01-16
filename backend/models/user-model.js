@@ -6,13 +6,13 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   gender: { type: String, required: true },
+  usertype: { type: String, required: true },
   batchYear: Number,
   college: String,
   location: String,
   profilePicture: String,
   dob: String,
-  status: { type: Boolean, default: false },
-  type: { type: String, required: true }
+  status: { type: Boolean, default: false }
 });
 
 userSchema.statics.hashPassword = function hashPassword(password) {
