@@ -10,7 +10,9 @@ const userSchema = mongoose.Schema({
   college: String,
   location: String,
   profilePicture: String,
-  dob: String
+  dob: String,
+  status: { type: Boolean, default: false },
+  type: { type: String, required: true }
 });
 
 userSchema.statics.hashPassword = function hashPassword(password) {

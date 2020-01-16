@@ -35,33 +35,7 @@ router.post(
   (req, res, next) => {
     User.findOne({ email: req.body.email }).then(currentUser => {
       if (!currentUser) {
-        const url = req.protocol + "://" + req.get("host");
-        var user;
-        if (req.file) {
-          user = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: User.hashPassword(req.body.password),
-            dob: req.body.dob,
-            gender: req.body.gender || " ",
-            location: req.body.location,
-            college: req.body.college,
-            batchYear: req.body.batchYear,
-            profilePicture: url + "/images/" + req.file.filename
-          });
-        } else {
-          user = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: User.hashPassword(req.body.password),
-            dob: req.body.dob,
-            gender: req.body.gender || " ",
-            location: req.body.location,
-            college: req.body.college,
-            batchYear: req.body.batchYear
-          });
-        }
-
+        const user = this.createUserObject(req);
         user
           .save()
           .then(result => {
@@ -101,5 +75,64 @@ router.post("/login", (req, res) => {
       console.log("Error :", err);
     });
 });
+
+router.post(
+  "/:id",
+  multer({ storage: storage }).single("image"),
+  (req, res, next) => {
+    console.log(req.body);
+    User.findByIdAndUpdate(req.params.id, req.body)
+      .then(fetchedUser => {
+        res
+          .status(200)
+          .json({ message: "Update successful", user: fetchedUser });
+      })
+      .catch(err => {
+        res.status(200).json({ message: "Update unsuccessful", error: err });
+      });
+  }
+);
+
+router.get("/:id", (req, res, next) => {
+  User.findById(req.params.id)
+    .then(fetchedUser => {
+      result => {
+        res.status(200).json({ newuser: fetchedUser });
+      };
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(501).json({ message: "User update unsuccessful." });
+    });
+});
+
+function createUserObject(req) {
+  const url = req.protocol + "://" + req.get("host");
+  var user;
+  if (req.file) {
+    user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      dob: req.body.dob,
+      gender: req.body.gender,
+      location: req.body.location,
+      college: req.body.college,
+      batchYear: req.body.batchYear,
+      profilePicture: url + "/images/" + req.file.filename
+    });
+  } else {
+    user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      dob: req.body.dob,
+      gender: req.body.gender,
+      location: req.body.location,
+      college: req.body.college,
+      batchYear: req.body.batchYear
+    });
+  }
+
+  return user;
+}
 
 module.exports = router;

@@ -3,6 +3,7 @@ const bodyParse = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 const sgMail = require("@sendgrid/mail");
+
 sgMail.setApiKey(
   "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"
 );
@@ -16,7 +17,9 @@ const app = express();
 mongoose
   .connect("mongodb://localhost:27017/AlumniTracking", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
   })
   .then(() => {
     console.log("Connected to database.....");
