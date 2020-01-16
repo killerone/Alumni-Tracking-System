@@ -22,7 +22,7 @@ mongoose
     console.log("Connected to database.....");
   })
   .catch(() => {
-    console.log("Connection failed.....");
+    console.log("Database connection failed.....");
   });
 
 app.use(bodyParse.json());
@@ -37,8 +37,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, DELETE, OPTIONS, PATCH",
-    "PUT"
+    "GET, POST, DELETE, OPTIONS, PATCH, PUT"
   );
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
