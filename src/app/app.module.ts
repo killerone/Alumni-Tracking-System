@@ -11,6 +11,7 @@ import { ClgNavBarComponent } from './clg-nav-bar/clg-nav-bar.component';
 import { UniNavBarComponent } from './uni-nav-bar/uni-nav-bar.component';
 import { EventComponent } from './event/event.component';
 
+
 @NgModule({
   declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],

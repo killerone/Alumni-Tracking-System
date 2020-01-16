@@ -1,0 +1,22 @@
+*{transition:all 0.3s ease-in-out;}
+
+.container{
+  clear:both;
+  overflow:auto;
+}
+
+nav{float:right;}
+
+.logo img{float:left;}
+
+ul li{
+  display: inline-block;
+   padding:10px;
+  font-size:large;
+   font-weight: normal;
+}
+
+ul li:hover{
+  color:#3f5de6;
+  
+}
