@@ -12,7 +12,7 @@ body,html{
 .card{
     height: 500px;
     border-radius: 15px !important;
-    background-color: rgba(0,0,0,0.4) !important;
+    background-color: white !important;
 }
 .contacts_body{
     padding:  0.75rem 0 !important;
@@ -26,6 +26,7 @@ body,html{
     border-radius: 15px 15px 0 0 !important;
     border-bottom: 0 !important;
     color: white;
+    background-color: #3f5de6 !important;
 }
 .card-footer{
 border-radius: 0 0 15px 15px !important;
@@ -125,7 +126,7 @@ margin-top: auto;
 margin-bottom: auto;
 margin-left: 10px;
 border-radius: 25px;
-background-color: #82ccdd;
+background-color: #2ca8ff;
 padding: 10px;
 position: relative;
 }
@@ -134,7 +135,7 @@ margin-top: auto;
 margin-bottom: auto;
 margin-right: 10px;
 border-radius: 25px;
-background-color: #78e08f;
+background-color: whitesmoke;
 padding: 10px;
 position: relative;
 }
