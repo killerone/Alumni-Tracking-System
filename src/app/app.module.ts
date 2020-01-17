@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -13,12 +13,13 @@ import { EventComponent } from './event/event.component';
 import { NoticeBoardComponent } from './notice-board/notice-board.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, LoginComponent, ChatComponent,NoticeBoardComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
+  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, LoginComponent, ChatComponent,NoticeBoardComponent, AddEventComponent],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule, FormsModule],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
