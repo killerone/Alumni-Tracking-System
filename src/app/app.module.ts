@@ -22,6 +22,8 @@ import { ChatComponent } from "./chat/chat.component";
 import { InviteComponent } from "./invite/invite.component";
 import { AddEventComponent } from "./add-event/add-event.component";
 import { HomeComponent } from "./home/home.component";
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchUserComponent } from './search-user/search-user.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { HomeComponent } from "./home/home.component";
     ClgNavBarComponent,
     UniNavBarComponent,
     EventComponent,
-    FilterComponent
+    FilterComponent,
+    SearchResultComponent,
+    SearchUserComponent
   ],
   imports: [
     BrowserModule,
