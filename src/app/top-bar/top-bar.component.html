@@ -15,13 +15,15 @@
       data-nav-image="./assets/img/blurred-image-1.jpg">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <button class="nav-link btn btn-primary" (click)="tologin()">
-            Login
-          </button>
-          <button class="nav-link btn btn-primary" *ngIf="isLoggedIn$ | async">
+          <!-- <button class="nav-link btn btn-primary" (click)="tologin()">
+            Login *ngIf="isLoggedIn$ | async"
+          </button> -->
+          <button class="nav-link btn btn-primary">
             Hello, User
           </button>
-          <button class="nav-link btn btn-primary" *ngIf="isLoggedIn$ | async" onclick="onLogout()">
+        </li>
+        <li>
+          <button class="nav-link btn btn-primary" onclick="onLogout()">
             Logout
           </button>
         </li>

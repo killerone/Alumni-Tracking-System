@@ -1,69 +1,39 @@
-<div class="col-md-8">
-    <div class="card" style="width: 600px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        
-        <img class="card-img-top " style="height:300px; width:500px; margin-left: 45px; " src="https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1519627962%2Fvltlogy23k1iid9pjffx.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Event Name</h5>
-            <p class="card-text">Text to describe Event</p>
-        </div>
-        <div class="container">
-            <table class="table table-hover">
-                <tr>
-                    <td>
-                        Date:
-                    </td>
-                    <td>//query</td>
-                    <td>
-                        Time:
-                    </td>
-                    <td>//query</td>
-                </tr>
-                <tr>
-                    <td>
-                        Venue: 
-                    </td>
-                    <td colspan="3">
-                        //query
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="card-body">
-            <a href="#" class="btn btn-primary" style="margin-left: 450px;width:80px;" >Join</a>
-        </div>
-    </div>
-
 <div *ngIf="events">
-  <div class="card" style="width: 600px;" *ngFor="let event of events">
-    <img class="card-img-top " style="height:300px; width:500px; margin-left: 45px; " src="https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1519627962%2Fvltlogy23k1iid9pjffx.jpg" alt="Card image cap">
+  <div class="card " style="width: 600px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
+    *ngFor="let event of events">
+
+    <img class="card-img-top mt-2" style="height:300px; width:500px; margin-left: 45px; "
+      src="https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_1316/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1519627962%2Fvltlogy23k1iid9pjffx.jpg"
+      alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{event.title}}</h5>
       <p class="card-text">{{ event.description}}</p>
     </div>
     <div class="container">
-        <table class="table table-hover">
-            <tr>
-                <td>
-                    Date:
-                </td>
-                <td> {{event.eventDate}}</td>
-                <td>
-                    Time:
-                </td>
-                <td>Date: {{event.eventDate}}</td>
-            </tr>
-            <tr>
-                <td>
-                    Venue: 
-                </td>
-                <td colspan="3">
-                    {{event.venue}}
-                </td>
-            </tr>
-        </table>
+      <table class="table table-hover">
+        <tr>
+          <td>
+            Date:
+          </td>
+          <td>{{event.eventDate | date}}</td>
+          <td>
+            Time:
+          </td>
+          <td>{{event.startTime}} - {{event.endTime}}</td>
+        </tr>
+        <tr>
+          <td>
+            Venue:
+          </td>
+          <td colspan="3">
+            {{event.venue}}
+          </td>
+        </tr>
+      </table>
     </div>
     <div class="card-body">
-      <a (click)="joinEvent(event.id)" class="btn-primary">Intrested</a>
+      <a (click)="joinEvent(event.id)" class="btn btn-primary"
+        style="margin-left: 450px;width:80px;color: white; font-weight: 700px !important; letter-spacing: 1px;">Join</a>
     </div>
   </div>
 </div>

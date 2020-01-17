@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./invite.component.css']
 })
 export class InviteComponent implements OnInit {
+  name;
+  email;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  invite() {
+    this.http.post("http://localhost:3000/invite", { email: this.email, name: this.name }).subscribe(msg => {
+      alert(msg["message"]);
+      this.name = "";
+      this.email = "";
+    });
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="col-md-6 ml-auto col-xl-2 mr-auto">
+
   <div class="card">
     <img
       class="card-img-top"
@@ -6,7 +6,7 @@
       alt="Card image cap"
     />
     <div class="card-header">
-      <h3 style="text-align: center;">Invite Alumni</h3>
+      <h4 class="mt-1" style="text-align: center;">Invite Alumni</h4>
       <ul class="nav nav-tabs justify-content-center" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
@@ -42,20 +42,25 @@
           <p>
             <input
               type="text"
-              value=""
+              id="name"
               placeholder="Name"
+              name="Name."
+              [(ngModel)] = "name"
               class="form-control"
             />
 
             <input
               type="text"
-              value="Email"
+              id="email"
+              name="email"
+              placeholder="Email.."
+              [(ngModel)] = "email"
               class="form-control form-control-success"
             />
-            <button class="btn btn-primary ">Send Invite</button>
+            <button class="btn btn-primary" (click)="invite()">Send Invite</button>
           </p>
         </div>
       </div>
     </div>
   </div>
-</div>
+
