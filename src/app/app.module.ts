@@ -12,8 +12,9 @@ import { UniNavBarComponent } from './uni-nav-bar/uni-nav-bar.component';
 import { EventComponent } from './event/event.component';
 
 
+
 @NgModule({
-  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent],
+  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
