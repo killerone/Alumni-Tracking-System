@@ -1,6 +1,7 @@
 .search-form {
   position: relative;
   width: 400px;
+  
 }
 
 .search-form .form-control {
@@ -12,6 +13,12 @@
   background: transparent;
   border-bottom: 1px solid white;
   color:white;
+}
+
+.navbar{
+  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 0px;
 }
 
 
