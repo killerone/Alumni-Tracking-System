@@ -17,10 +17,11 @@ import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { HomeComponent } from './home/home.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, LoginComponent, ChatComponent,NoticeBoardComponent, AddEventComponent,HomeComponent],
+  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, LoginComponent, ChatComponent,NoticeBoardComponent, AddEventComponent,HomeComponent, AddNoticeComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule, FormsModule],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

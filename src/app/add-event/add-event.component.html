@@ -1,35 +1,53 @@
-<div class="row">
-    <div class="col-md-3">
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal modal-lg" role="document">
+      <div class="modal-content">
+            <div class="modal-c-tabs">
+             
+              <div class="tab-content">
+                  <div class="tab-pane fade in show active" id="panelevent" role="tabpanel">
+                      <div class="modal-body">
+                          <div class="md-form form-sm mb-5" style="margin-left: 20px; margin-right: 20px">
+                              <div class="row">
+                                  <div class="col-md-2"><label>Event Name: </label></div>
+                                  <div class="col-md-10"><input type="text" name="eventname" class="form-control" required /></div>
+                              </div>
+                              
+                              <div class="row mt-3">
+                                  <div class="col-md-2"><label>Description:</label> </div>
+                                  <div class="col-md-10 border"><textarea name="descr"  class="form-control" size=""required></textarea></div>
+                              </div>
+                              <div class="row">
+                                  <table class="table table-borderless">
+                                      <tr>
+                                          <td><label class="control-label">Venue: </label></td>
+                                          <td><input type="text" name="venue" class="form-control" required /></td>
+                                          <td><label class=" control-label">Date: </label></td>
+                                          <td><input type="date" name="event_start_date" class="form-control" required /></td>
+                                      </tr>
+                                      <tr>
+                                          <td><label class=" control-label">Start Time: </label></td>
+                                          <td><input type="text" pattern="\d{1,2}:\d{2}([ap]m)?" placeholder="eg: 10:00am OR 18:30" name="time" class="form-control" required /></td><td><label class=" control-label">End Time: </label></td>
+                                          <td><input type="text" pattern="\d{1,2}:\d{2}([ap]m)?" placeholder="eg: 10:00am OR 18:30" name="time" class="form-control" required /></td>
+                                      </tr>
+                                  </table>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-2"><label control-label>Choose Image: </label></div>
+                                  <div class="col-md-10"><input type="file" name="image" id="imageupload" value="" class="form-control" required /></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-    </div>
-    <div class="col-md-6">
-        <div class="container">
-            <form>
-                <div class="row">
-                    <div class="col"><label>Event Name: </label></div>
-                    <div class="col"><input type="text" name="eventname" class="form-control" required /></div>
-                </div>
-                <div class="row">
-                    <div class="col"><label>Description:</label> </div>
-                    <div class="col"><textarea name="descr"  class="form-control" required></textarea></div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label class=" control-label">Event Start Date: </label>
+     
+                    <div class="text-center form-sm mt-2">
+                      <button class="btn btn-info" style="margin-bottom: 10px">Add</button>
                     </div>
-                    <div class="col">
-                        <input type="date" name="event_start_date" class="form-control" required />
-                    </div>
-                    <div class="col"><label class="control-label">Event End Date: </label></div>
-                    <div class="col"><input type="date" name="event_end_date" class="form-control" required /></div>
                 </div>
-                <div class="row">
-                    <div class="col"><label class="control-label">Venue: </label></div>
-                    <div class="col"><input type="text" name="venue" class="form-control" required /></div>
-                    <div class="col"><label class=" control-label">Time: </label></div>
-                    <div class="col"><input type="text" pattern="\d{1,2}:\d{2}([ap]m)?" placeholder="eg: 10:00am OR 18:30" name="time" class="form-control" required /></div>
-                </div>
-            </form>
+          </div>
         </div>
-    </div>
+  </div>
+</div>
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch Modal LogIn/Register</a>
 </div>
