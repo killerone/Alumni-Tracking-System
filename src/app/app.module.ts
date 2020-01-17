@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
 const config: SocketIoConfig = { url: "http://localhost:3000", options: {} };
@@ -15,6 +15,7 @@ import { EventComponent } from "./event/event.component";
 import { NoticeBoardComponent } from "./notice-board/notice-board.component";
 import { LoginComponent } from "./login/login.component";
 import { ChatComponent } from "./chat/chat.component";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,15 @@ import { ChatComponent } from "./chat/chat.component";
     EventComponent,
     LoginComponent,
     ChatComponent,
-    NoticeBoardComponent
+    NoticeBoardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [
@@ -40,4 +43,4 @@ import { ChatComponent } from "./chat/chat.component";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,19 +1,22 @@
-
-
-      <div class="col-md-8">
-        <div class="card" style="width: 600px;">
-          <img class="card-img-top" src=".." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Event Name</h5>
-            <p class="card-text">Text to describe Event</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Date: </li>
-            <li class="list-group-item">Venue: </li>
-            <li class="list-group-item">Time: </li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="btn-primary" >Intrested</a>
-          </div>
-        </div>
-      </div>
+<div *ngIf="events">
+  <div class="card" style="width: 600px;" *ngFor="let event of events">
+    <div class="img-div">
+      <img class="card-img-top" [src]="event.image" alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{event.title}}</h5>
+      <p class="card-text">{{ event.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Date: {{event.eventDate}}</li>
+      <li class="list-group-item">Venue: {{event.venue}}</li>
+      <li class="list-group-item">Time: {{event.startTime}} - {{event.endTime}}</li>
+    </ul>
+    <div class="card-body">
+      <a (click)="joinEvent(event.id)" class="btn-primary">Intrested</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="!events">
+  No event
+</div>
