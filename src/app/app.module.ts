@@ -18,6 +18,7 @@ import { ChatComponent } from "./chat/chat.component";
 import { InviteComponent } from './invite/invite.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { HomeComponent } from './home/home.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     ChatComponent,
     NoticeBoardComponent,
-    InviteComponent,
-    AddEventComponent, HomeComponent
+    InviteComponent, AddEventComponent,HomeComponent, AddNoticeComponent
   ],
   imports: [
     BrowserModule,
