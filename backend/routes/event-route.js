@@ -63,7 +63,37 @@ router.post(
   }
 );
 
+router.post("/join/:id", (req, res, next) => {
+  const userid = req.body.uid;
+  Event.findById(req.params.id)
+    .then(fetchedEvent => {
+      let participants = fetchedEvent.participants;
+      console.log(userid);
+      console.log(participants);
+      if (!participants.includes(userid)) {
+        participants.push(userid);
+        fetchedEvent
+          .updateOne({ participants: participants })
+          .then(result => {
+            res.status(200).json({ msg: "You are added." });
+            next();
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(501).json({ message: "User update unsuccessful." });
+            next();
+          });
+      }
+      res.status(200).json({ msg: "Already joined." });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(501).json({ message: "User update unsuccessful." });
+    });
+});
+
 router.delete("/:id", (req, res, next) => {
+  console.log(req.params.id);
   Event.findByIdAndDelete(req.params.id)
     .then(res => {
       res.status(200).json("Event deleted....");
@@ -82,29 +112,6 @@ router.get("/:id", (req, res, next) => {
       console.log(err);
       res.status(501).json({ message: "User update unsuccessful." });
     });
-});
-
-router.post("/join/:eventid/:userid", (req, res, next) => {
-  console.log(req.body);
-  next();
-  //   const userid = req.body.title;
-  //   Event.findById(req.params.id)
-  //     .then(fetchedEvent => {
-  //       let participants = fetchedEvent.participants;
-  //       console.log(userid);
-  //       console.log(participants);
-  //       if (!participants.includes(userid)) {
-  //         participants.push(userid);
-  //         fetchedEvent.updateOne({ participants: participants }).then(result => {
-  //           res.status(200).json({ msg: "You are added." });
-  //         });
-  //       }
-  //       res.status(200).json({ msg: "Already joined." });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(501).json({ message: "User update unsuccessful." });
-  //     });
 });
 
 module.exports = router;

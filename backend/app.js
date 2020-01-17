@@ -31,6 +31,11 @@ mongoose
   });
 
 app.use(bodyParse.json());
+app.use(
+  bodyParse.urlencoded({
+    extended: true
+  })
+);
 app.use("/images", express.static(path.join("backend/images"))); // to make images folder access statically
 
 // for CORS
