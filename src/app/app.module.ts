@@ -15,6 +15,7 @@ import { EventComponent } from "./event/event.component";
 import { NoticeBoardComponent } from "./notice-board/notice-board.component";
 import { LoginComponent } from "./login/login.component";
 import { ChatComponent } from "./chat/chat.component";
+import { InviteComponent } from './invite/invite.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ChatComponent } from "./chat/chat.component";
     EventComponent,
     LoginComponent,
     ChatComponent,
-    NoticeBoardComponent
+    NoticeBoardComponent,
+    InviteComponent
   ],
   imports: [
     BrowserModule,
