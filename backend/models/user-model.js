@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
   location: String,
   profilePicture: String,
   dob: String,
-  status: { type: Boolean, default: false }
+  status: { type: Boolean, default: false },
 });
 
 userSchema.statics.hashPassword = function hashPassword(password) {

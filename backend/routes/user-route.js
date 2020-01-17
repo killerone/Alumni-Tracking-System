@@ -103,13 +103,34 @@ router.post("/login", (req, res) => {
     });
 });
 
+router.post("/search", (req, res, next) => {
+  const word = req.body.word;
+  console.log(word);
+  User.find({ name: new RegExp(word, "i"), usertype: "alumni" }).then(users => {
+    const user = users.map(us => {
+      return {
+        id: us.id,
+        name: us.name,
+        profilePicture: us.profilePicture,
+        college: us.college,
+        batchYear: us.batchYear,
+        location: us.location,
+        email: us.email,
+        dob: us.dob
+      };
+    });
+
+    res.status(200).json({ user: user });
+  });
+});
+
 router.post(
   "/:id",
   multer({ storage: storage }).single("image"),
   (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");
     req.body["profilePicture"] = url + "/images/users/" + req.file.filename;
-    User.findByIdAndUpdate(req.params.id, req.body,)
+    User.findByIdAndUpdate(req.params.id, req.body)
       .then(fetchedUser => {
         res
           .status(200)
@@ -124,7 +145,17 @@ router.post(
 router.get("/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(fetchedUser => {
-      res.status(200).json({ newuser: fetchedUser });
+      const user = {
+        id: fetchedUser.id,
+        name: fetchedUser.name,
+        profilePicture: fetchedUser.profilePicture,
+        college: fetchedUser.college,
+        batchYear: fetchedUser.batchYear,
+        location: fetchedUser.location,
+        email: fetchedUser.email,
+        dob: fetchedUser.dob
+      };
+      res.status(200).json({ newuser: user });
     })
     .catch(err => {
       console.log(err);
