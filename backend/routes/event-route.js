@@ -27,6 +27,19 @@ const storage = multer.diskStorage({
   }
 });
 
+// get all events
+router.post("", (req, res, next) => {
+  Event.find({})
+    .then(events => {
+      res.status(200).json({ event: events });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(401).json({ message: "Error" });
+    });
+});
+
+// add a event
 router.post(
   "/add",
   multer({ storage: storage }).single("image"),
@@ -63,6 +76,8 @@ router.post(
   }
 );
 
+
+// join a particular event
 router.post("/join/:id", (req, res, next) => {
   const userid = req.body.uid;
   Event.findById(req.params.id)
@@ -92,6 +107,8 @@ router.post("/join/:id", (req, res, next) => {
     });
 });
 
+
+// delete a event
 router.delete("/:id", (req, res, next) => {
   console.log(req.params.id);
   Event.findByIdAndDelete(req.params.id)
@@ -103,6 +120,8 @@ router.delete("/:id", (req, res, next) => {
     });
 });
 
+
+// get a particular event
 router.get("/:id", (req, res, next) => {
   Event.findById(req.params.id)
     .then(fetchedEvent => {

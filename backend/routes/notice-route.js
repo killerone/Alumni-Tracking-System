@@ -27,6 +27,19 @@ const storage = multer.diskStorage({
   }
 });
 
+// get all notice
+router.post("", (req, res, next) => {
+  Notice.find({})
+    .then(notice => {
+      res.status(200).json({ notice: notices });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(401).json({ message: "Error" });
+    });
+});
+
+// add new notice
 router.post(
   "/add",
   multer({ storage: storage }).single("image"),
@@ -36,13 +49,11 @@ router.post(
     if (req.file) {
       notice = new Notice({
         title: req.body.title,
-        description: req.body.description,
         image: url + "/images/post/" + req.file.filename
       });
     } else {
       notice = new Notice({
-        title: req.body.title,
-        description: req.body.description
+        title: req.body.title
       });
     }
 
@@ -59,6 +70,7 @@ router.post(
   }
 );
 
+// delete a notice
 router.delete("/:id", (req, res, next) => {
   Notice.findByIdAndDelete(req.params.id)
     .then(res => {
@@ -69,6 +81,7 @@ router.delete("/:id", (req, res, next) => {
     });
 });
 
+// get a particular notice
 router.get("/:id", (req, res, next) => {
   Notice.findById(req.params.id)
     .then(fetchedNotice => {

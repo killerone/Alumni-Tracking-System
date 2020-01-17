@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const noticeSchema = mongoose.Schema(
   {
     title: { type: String, required: true },
-    description: String,
-    image: String
+    image: { type: String, required: true }
   },
   { timestamps: true }
 );
