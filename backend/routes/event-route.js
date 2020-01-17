@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 });
 
 // get all events
-router.post("/", (req, res, next) => {
+router.get("/", (req, res, next) => {
   Event.find({})
     .then(events => {
       res.status(200).json({ event: events });
@@ -46,20 +46,27 @@ router.post(
   (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");
     let event;
+    console.log(res.body);
     if (req.file) {
       event = new Event({
         title: req.body.title,
         description: req.body.description,
         participants: [],
         eventDate: req.body.eventDate,
-        image: url + "/images/post/" + req.file.filename
+        image: url + "/images/post/" + req.file.filename,
+        venue: req.body.venue,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime
       });
     } else {
       event = new Event({
         title: req.body.title,
         description: req.body.description,
         participants: [],
-        eventDate: req.body.eventDate
+        eventDate: req.body.eventDate,
+        venue: req.body.venue,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime
       });
     }
 
@@ -94,7 +101,7 @@ router.post("/join/:id", (req, res, next) => {
           })
           .catch(err => {
             console.log(err);
-            res.status(501).json({ message: "User update unsuccessful." });
+            res.status(501).json({ msg: "User update unsuccessful." });
             next();
           });
       }

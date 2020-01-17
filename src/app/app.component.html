@@ -1,19 +1,17 @@
-<<<<<<< HEAD
-<top-bar></top-bar>
 <div>
+  <top-bar></top-bar>
+</div>
+<!-- <div *ngIf="currentUser.type == 'alumni'">
   <user-nav-bar></user-nav-bar>
 </div>
 
-<!-- *ngIf="currentUser.type == 'alumni'"
-  <div *ngIf="currentUser.type == 'college'">
+<div *ngIf="currentUser.type == 'college'">
   <clg-nav-bar></clg-nav-bar>
 </div>
 
 <div *ngIf="currentUser.type == 'university'">
   <uni-nav-bar></uni-nav-bar>
 </div> -->
-=======
-<!--<clg-nav-bar></clg-nav-bar> -->
-<top-bar></top-bar>
-<uni-nav-bar></uni-nav-bar>
->>>>>>> c89480daf8af036dcea33e3aaff84d48c7541a7e
+
+<!-- main app container -->
+<router-outlet></router-outlet>
