@@ -10,11 +10,13 @@ import { UserNavBarComponent } from './user-nav-bar/user-nav-bar.component';
 import { ClgNavBarComponent } from './clg-nav-bar/clg-nav-bar.component';
 import { UniNavBarComponent } from './uni-nav-bar/uni-nav-bar.component';
 import { EventComponent } from './event/event.component';
+import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, ],
+  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, LoginComponent, ChatComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
