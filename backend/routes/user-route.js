@@ -80,6 +80,7 @@ router.post(
   }
 );
 
+// login
 router.post("/login", (req, res) => {
   let fetchedUser;
 
@@ -103,6 +104,7 @@ router.post("/login", (req, res) => {
     });
 });
 
+//search user
 router.post("/search", (req, res, next) => {
   const word = req.body.word;
   console.log(word);
@@ -124,6 +126,7 @@ router.post("/search", (req, res, next) => {
   });
 });
 
+// edit user
 router.post(
   "/:id",
   multer({ storage: storage }).single("image"),
@@ -142,6 +145,19 @@ router.post(
   }
 );
 
+// get all colleges
+router.get("/colleges", (req, res) => {
+  User.find({ type: "college" })
+    .then(colleges => {
+      res.status(200).json({ college: colleges });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(401).json({ msg: "Error.." });
+    });
+});
+
+// get a user
 router.get("/:id", (req, res, next) => {
   User.findById(req.params.id)
     .then(fetchedUser => {

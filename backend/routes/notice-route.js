@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 });
 
 // get all notice
-router.post("", (req, res, next) => {
+router.post("/", (req, res, next) => {
   Notice.find({})
     .then(notice => {
       res.status(200).json({ notice: notices });
@@ -41,7 +41,7 @@ router.post("", (req, res, next) => {
 
 // add new notice
 router.post(
-  "/add",
+  "/create",
   multer({ storage: storage }).single("image"),
   (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");

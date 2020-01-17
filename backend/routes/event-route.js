@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 });
 
 // get all events
-router.post("", (req, res, next) => {
+router.post("/", (req, res, next) => {
   Event.find({})
     .then(events => {
       res.status(200).json({ event: events });
@@ -41,7 +41,7 @@ router.post("", (req, res, next) => {
 
 // add a event
 router.post(
-  "/add",
+  "/create",
   multer({ storage: storage }).single("image"),
   (req, res, next) => {
     const url = req.protocol + "://" + req.get("host");
@@ -76,7 +76,6 @@ router.post(
   }
 );
 
-
 // join a particular event
 router.post("/join/:id", (req, res, next) => {
   const userid = req.body.uid;
@@ -107,7 +106,6 @@ router.post("/join/:id", (req, res, next) => {
     });
 });
 
-
 // delete a event
 router.delete("/:id", (req, res, next) => {
   console.log(req.params.id);
@@ -119,7 +117,6 @@ router.delete("/:id", (req, res, next) => {
       res.status(401).json("Event not deleted....");
     });
 });
-
 
 // get a particular event
 router.get("/:id", (req, res, next) => {
