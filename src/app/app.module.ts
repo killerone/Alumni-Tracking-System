@@ -1,4 +1,3 @@
-import { createPopper } from '@popperjs/core';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -8,36 +7,21 @@ const config: SocketIoConfig = { url: "http://localhost:3000", options: {} };
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-<<<<<<< HEAD
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { UserNavBarComponent } from './user-nav-bar/user-nav-bar.component';
-import { ClgNavBarComponent } from './clg-nav-bar/clg-nav-bar.component';
-import { UniNavBarComponent } from './uni-nav-bar/uni-nav-bar.component';
-import { EventComponent } from './event/event.component';
-import { FilterComponent } from './filter/filter.component';
-import {BrowserAnimationsModule} from 
-    '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-
-
-
-
-@NgModule({
-  declarations: [AppComponent, TopBarComponent, UserNavBarComponent, ClgNavBarComponent, UniNavBarComponent, EventComponent, FilterComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule,BrowserAnimationsModule],
-=======
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { UserNavBarComponent } from "./user-nav-bar/user-nav-bar.component";
 import { ClgNavBarComponent } from "./clg-nav-bar/clg-nav-bar.component";
 import { UniNavBarComponent } from "./uni-nav-bar/uni-nav-bar.component";
 import { EventComponent } from "./event/event.component";
+import { FilterComponent } from "./filter/filter.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AddNoticeComponent } from "./add-notice/add-notice.component";
+
 import { NoticeBoardComponent } from "./notice-board/notice-board.component";
 import { LoginComponent } from "./login/login.component";
 import { ChatComponent } from "./chat/chat.component";
-import { InviteComponent } from './invite/invite.component';
-import { AddEventComponent } from './add-event/add-event.component';
-import { HomeComponent } from './home/home.component';
-import { AddNoticeComponent } from './add-notice/add-notice.component';
+import { InviteComponent } from "./invite/invite.component";
+import { AddEventComponent } from "./add-event/add-event.component";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +34,17 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
     LoginComponent,
     ChatComponent,
     NoticeBoardComponent,
-    InviteComponent, AddEventComponent,HomeComponent, AddNoticeComponent
+    InviteComponent,
+    AddEventComponent,
+    HomeComponent,
+    AddNoticeComponent,
+    AppComponent,
+    TopBarComponent,
+    UserNavBarComponent,
+    ClgNavBarComponent,
+    UniNavBarComponent,
+    EventComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -58,12 +52,12 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    BrowserAnimationsModule
   ],
->>>>>>> d9d983a8880671f42dadbaeb1290454f7ddd3bbf
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

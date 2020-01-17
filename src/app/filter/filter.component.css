@@ -77,8 +77,8 @@ a {
 }
 
 .checkbox-btn input:checked~.btn {
-    border-color: #3167eb;
-    background-color: #3167eb;
+    border-color: #3568eb;
+    background-color: #7195ee;
     color: #fff
 }
 
