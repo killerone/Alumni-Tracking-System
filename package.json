@@ -11,15 +11,22 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.5",
+    "@angular/animations": "^8.2.14",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.2.5",
     "@angular/compiler": "~8.2.5",
     "@angular/core": "~8.2.5",
     "@angular/forms": "~8.2.5",
-    "@angular/platform-browser": "~8.2.5",
+    "@angular/material": "^8.2.3",
+    "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
+<<<<<<< HEAD
+    "@popperjs/core": "^2.0.0-rc.2",
+    "angular-hammer": "^2.2.0",
+=======
     "@sendgrid/mail": "^6.4.0",
+>>>>>>> d9d983a8880671f42dadbaeb1290454f7ddd3bbf
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "core-js": "^3.6.3",
@@ -27,15 +34,19 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.7",
     "multer": "^1.4.2",
+<<<<<<< HEAD
+=======
     "ngx-socket-io": "^3.0.1",
+>>>>>>> d9d983a8880671f42dadbaeb1290454f7ddd3bbf
     "passport": "^0.4.1",
+    "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
     "socket.io": "^2.3.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.4",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/cli": "~8.3.4",
     "@angular/compiler-cli": "~8.2.5",
     "@angular/language-service": "~8.2.5",
